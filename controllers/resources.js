@@ -1,9 +1,13 @@
+const User = require('../models/user-schema')
+const Answer = require('../models/answer-schema')
+const Question = require('../models/question-schema')
+const Resource = require('../models/resource-schema')
+const Router = express.Router()
+var usersController = require('../controllers/users');
+
 const mongoose = require('mongoose')
 const express = require('express')
-const Resource = require('../models/resource-schema')
-const Question = require('../models/question-schema')
-const Answer = require('../models/answer-schema')
-const Router = express.Router()
+const passport = require('passport')
 
 // function for authenticated user:
 function authenticatedUser(req, res, next) {

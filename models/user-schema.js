@@ -1,15 +1,16 @@
 // implementing local passport.js from class
+const mongoose = require('../db/connection')
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bcrypt   = require('bcrypt-nodejs');
-const QuestionSchema = require('./question-schema')
-const AnswerSchema = require('./answer-schema')
-const ResourceSchema = require('./resource-schema')
+const AnswerSchema = require('./answer-schema').model('Answer')
+const QuestionSchema = require('./question-schema').model('Question')
+const ResourceSchema = require('./resource-schema').model('Resource')
 
 const UserSchema = new mongoose.Schema({
   local : {
-    email        : String,
-    password     : String,
+    email: String,
+    password: String,
     displayname: String,
     firstName: String,
     lastName: String, 
@@ -30,9 +31,11 @@ const UserSchema = new mongoose.Schema({
 
 //////
 
-// compare passwords and if correct, and allow entry:
+// compare passwords and if correct, allow entry:
 UserSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
 };
 
-module.exports = mongoose.model('User', UserSchema);
+mongoose.model('User', UserSchema);
+
+module.exports = mongoose

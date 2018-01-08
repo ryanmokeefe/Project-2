@@ -1,7 +1,10 @@
-const mongoose = require('../db/connection')
+// const mongoose = require('../db/connection')
 // do I need to require all other schemas being used?
-const QuestionSchema = require('./question-schema')
-// const NoteSchema = require('./question-schema')
+const mongoose = require('../db/connection');
+
+const AnswerSchema = require('./answer-schema').model('Question')
+const QuestionSchema = require('./question-schema').model('Question')
+// const QuestionSchema = mongoose.model('Question')
 
 
 const ResourceSchema = new mongoose.Schema({
@@ -12,10 +15,15 @@ const ResourceSchema = new mongoose.Schema({
     videos: String,
     exercises: String,
     votes: Number,
-    questions: [QuestionSchema],
-    // notes: [NoteSchema]
+    questions: [{
+        type: mongoose.Schema.Types.ObjectId,  //REFERENCING :D
+        ref: 'Question'
+      }],
 })
 
-const Resource = mongoose.model('Resource', ResourceSchema)
+// const Resource = mongoose.model('Resource', ResourceSchema)
 
-module.exports = Question
+// module.exports = Resource
+
+mongoose.model('Resource', ResourceSchema)
+module.exports = mongoose
