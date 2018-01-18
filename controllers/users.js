@@ -29,6 +29,8 @@ router.route("/logout")
 // })
 
 
+// Be consistent on semicolons!
+// Great job implementing auth though!
 
 // function for authenticated user:
 function authenticatedUser(req, res, next) {

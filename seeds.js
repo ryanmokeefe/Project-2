@@ -1,3 +1,4 @@
+// this seems like a duplicate!
 const mongoose = require('../controllers/resources')
 const seedData = require('./seeds.json')
 const Resource = require('../models/resource-schema')

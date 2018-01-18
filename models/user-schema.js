@@ -8,13 +8,13 @@ const ResourceSchema = require('./resource-schema')
 
 const UserSchema = new mongoose.Schema({
   local : {
-    email        : String,
-    password     : String,
+    email: String,
+    password: String,
     displayname: String,
     firstName: String,
     lastName: String, 
     profileImg: String,
-    dateJoined: {type: Date, default: Date.now},
+    dateJoined: {type: Date, default: Date.now}
     // questionsPosted: [QuestionSchema],
     // answersPosted: [AnswerSchema],
     // notes: [NotesSchema],

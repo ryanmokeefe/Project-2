@@ -7,6 +7,7 @@ var searchController = require('../controllers/search')
 var usersController = require('../controllers/users');
 const router = express.Router()
 
+// Remove commented code in production!
 
 // // function for authenticated user:
 // function authenticatedUser(req, res, next) {
@@ -33,6 +34,7 @@ router.get('/', (req, res) => {
 
 ////////////
 
+// Would remove this if it isn't being used!
   function thing() {
       console.log('stuff')
   }
@@ -54,52 +56,52 @@ router.get('/', (req, res) => {
 
 ////////////
 
+// Use consistent indentation!
   // get one by name:
-  router.get('/:name', (req, res) => {
-      let name = req.params.name
-      Resource.findOne({name: req.params.name})
-      .then((resource) => {
-          res.render('resources-show', {
-              resource: resource
-            })
-        })
-        .catch((err) => {
-            console.log(err)
+router.get('/:name', (req, res) => {
+    let name = req.params.name
+    Resource.findOne({name: req.params.name})
+    .then((resource) => {
+        res.render('resources-show', {
+            resource: resource
         })
     })
-    
-    // update resources: 
-    router.put('/:name', (req, res) => {
-        Resource.findOneAndUpdate({name: req.params.name}, req.body.resource, {new: true})
-        .then(resource => {
-            res.redirect(`/resources/${resource.name}`)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+    .catch((err) => {
+        console.log(err)
     })
+})
 
-    // Post new resources:
-    router.post('/', (req, res) => {
-        Resource.create(req.body.resource)
-        .then((resource) => {
-            res.redirect(`/resources/${resource.name}`)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+// update resources: 
+router.put('/:name', (req, res) => {
+    Resource.findOneAndUpdate({name: req.params.name}, req.body.resource, {new: true})
+    .then(resource => {
+        res.redirect(`/resources/${resource.name}`)
     })
- 
-      
-  
-    // delete resource ** (make so only authorized user can delete): 
-    router.delete('/:name', (req, res) => {
-        Resource.findOneAndRemove({name: req.params.name})
-        .then(() => {
-            res.redirect('/resources')
-        })
+    .catch((err) => {
+        console.log(err)
     })
+})
+
+// Post new resources:
+router.post('/', (req, res) => {
+    Resource.create(req.body.resource)
+    .then((resource) => {
+        res.redirect(`/resources/${resource.name}`)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
     
-    
-    module.exports = router
-    
+
+// delete resource ** (make so only authorized user can delete): 
+router.delete('/:name', (req, res) => {
+    Resource.findOneAndRemove({name: req.params.name})
+    .then(() => {
+        res.redirect('/resources')
+    })
+})
+
+
+module.exports = router

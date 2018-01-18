@@ -1,14 +1,16 @@
 // document.getElementsByClassName(".button-collapse")[0].sideNav();
 
+// Be consistent on semi colons!
 
 $(".button-collapse").sideNav();
 
 
-autoplay()   
 function autoplay() {
     $('.carousel').carousel('next');
     setTimeout(autoplay, 4500);
 }
+autoplay()   
+
 
 $('.carousel.carousel-slider').carousel({
     fullWidth: true,
