@@ -60,6 +60,8 @@ router.get('/articles', (req, res) => {
   })
 
 // lectures: 
+
+// You could dry this up by finding by the type and then making the route :resourceType!
 router.get('/lectures', (req, res) => {
     Resource.find({ type: "Lecture"})
     .then((resource) => {

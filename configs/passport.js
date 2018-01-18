@@ -1,5 +1,6 @@
 // all from passport lesson
 
+// Nice job putting  this in a separate file! Again, remove the commented code and make sure style is consistent!
 
 // file for all logic related to passport.js
 

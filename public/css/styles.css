@@ -1,5 +1,6 @@
 /* mobile: */
 
+/* You may want to look into SASS to make this code more DRY */
 body {
     background: rgb(41, 41, 41);
     color: whitesmoke;
@@ -254,8 +255,10 @@ h2 {
         font-size: 20px;
     }
 
-    tr:nth-child(odd)		{ background-color:#222; }
-    tr:nth-child(even)		{ background-color:#555; }
+    /* Nice job here! */
+    tr:nth-child(odd) { background-color:#222; }
+    tr:nth-child(even) { background-color:#555; }
+
     table.highlight tbody tr:hover {
         color: #444 !important;
         background-color: #eee;
@@ -286,6 +289,7 @@ h2 {
         background-color: rgb(72, 167, 167);
         color: white;
     }
+
     .voteButton:hover {
         background-color: rgb(81, 207, 207) !important;
         font-weight: 900;
@@ -293,15 +297,16 @@ h2 {
         text-shadow: 1px 1px 1px #222;    
         /* box-shadow: 5px 5px 10px #444;     */
     }
+
     .submit {
         width: 30%;
         margin: 15px 35%;
     }
+
     .submit:hover {
         background-color: #444;
         color: #eee;
     }
-
     /* carousel */
 
     .carousel {
@@ -316,27 +321,33 @@ h2 {
         background-image: url('../img/webdev3.jpg');
         background-size: cover;
     }
+
     .car2 {
         background-image: url('../img/webdev2.jpg');
         background-size: cover;
         background-position: center;
         background-position-y: 1px;
     }
+
     .car3 {
         background-image: url('../img/github.png');
         background-size: contain;
         background-position: center;
     }
+
     .car4 {
         background-image: url('../img/car4.jpg');
         background-position: center;
     }
+
     .car4 h2, .car4 p {
         color: #666;
     }
+
     .h2car {
         margin: 20% 0 0;
     }
+
     .enterButton:hover {
         background-color: rgb(72, 167, 167) !important;
         color: white !important;

@@ -11,6 +11,8 @@ if (process.env.NODE_ENV == "production") {
   
   mongoose.Promise = Promise
   module.exports = mongoose
+
+  // Remove commented code in production!
   
   // mongoose.connect('mongodb://localhost/project-2')
   // .then(() => {

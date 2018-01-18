@@ -7,6 +7,7 @@ Resource.remove({})
         return Resource.collection.insert(seedData)
     })
     .then(() => {
-        process.exit
+        // Call the method here!
+        process.exit()
     })
 
