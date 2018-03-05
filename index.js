@@ -1,7 +1,7 @@
 const express    = require('express')
 const parser     = require('body-parser')
 const methodOverride = require('method-override')
-const hbs        = require('express-handlebars')
+// const hbs        = require('express-handlebars')
 const controller = require('./controllers/resources.js')
 const app        = express()
 var mongoose     = require('mongoose');
@@ -26,13 +26,13 @@ app.use(parser.urlencoded({extended: true}))
 app.use(parser.json({extended: false}))
 
 app.set('port', process.env.PORT || 4000)
-app.set('view engine', 'hbs')
-app.engine('.hbs', hbs({
-    extname: '.hbs',
-    partialsDir: './views/',
-    layoutsDir: './views/',
-    defaultLayout: 'layout-main'
-}))
+// app.set('view engine', 'hbs')
+// app.engine('.hbs', hbs({
+//     extname: '.hbs',
+//     partialsDir: './views/',
+//     layoutsDir: './views/',
+//     defaultLayout: 'layout-main'
+// }))
 
 // uses session ENCRYPTION
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })); 
@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
   });
 
 app.get('/', (req, res) => {
-    res.render('/')
+    res.send('/')
 })
 
 app.use('/resources', controller)
