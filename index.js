@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
   });
 
 app.get('/', (req, res) => {
-    res.render('welcome')
+    res.render('/')
 })
 
 app.use('/resources', controller)
