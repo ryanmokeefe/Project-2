@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const Resource = require('../models/resource-schema')
-// const Question = require('../models/question-schema')
-// const Answer = require('../models/answer-schema')
-// var searchController = require('../controllers/search')
-// var usersController = require('../controllers/users');
+const Question = require('../models/question-schema')
+const Answer = require('../models/answer-schema')
+var searchController = require('../controllers/search')
+var usersController = require('../controllers/users');
 const router = express.Router()
 
 
@@ -22,7 +22,9 @@ router.get('/', (req, res) => {
     Resource.find({})
     .then((resource) => {
         // show all
-        res.json(resource)
+        res.render('resources-index', {
+            resources: resource
+        })
     })
     .catch((err) => {
         console.log(err)
@@ -35,27 +37,17 @@ router.get('/', (req, res) => {
       console.log('stuff')
   }
 
-// //////////// find all videos: 
-
-router.get('/search/video', (req, res) => {
-    Resource.find({ videos: "Yes"})
-    .then((resource) => {
-        res.json(resource)
-        })
-    .catch((err) => {console.log(err)
-    })
-})
-
-
 
 ////////////
 
   // get one by name:
   router.get('/:name', (req, res) => {
-    //   let name = req.params.name
+      let name = req.params.name
       Resource.findOne({name: req.params.name})
       .then((resource) => {
-          res.json(resource)
+          res.render('resources-show', {
+              resource: resource
+            })
         })
         .catch((err) => {
             console.log(err)
@@ -96,4 +88,3 @@ router.get('/search/video', (req, res) => {
     
     
     module.exports = router
-    
