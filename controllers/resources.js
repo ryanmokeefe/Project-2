@@ -22,9 +22,7 @@ router.get('/', (req, res) => {
     Resource.find({})
     .then((resource) => {
         // show all
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {
         console.log(err)
@@ -45,9 +43,7 @@ router.get('/', (req, res) => {
       let name = req.params.name
       Resource.findOne({name: req.params.name})
       .then((resource) => {
-          res.render('resources-show', {
-              resource: resource
-            })
+          res.json(resource)
         })
         .catch((err) => {
             console.log(err)
@@ -57,8 +53,8 @@ router.get('/', (req, res) => {
     // update resources: 
     router.put('/:name', (req, res) => {
         Resource.findOneAndUpdate({name: req.params.name}, req.body.resource, {new: true})
-        .then(resource => {
-            res.redirect(`/resources/${resource.name}`)
+        .then((resource) => {
+            res.json(resource)
         })
         .catch((err) => {
             console.log(err)
@@ -69,7 +65,7 @@ router.get('/', (req, res) => {
     router.post('/', (req, res) => {
         Resource.create(req.body.resource)
         .then((resource) => {
-            res.redirect(`/resources/${resource.name}`)
+            res.json(resource)
         })
         .catch((err) => {
             console.log(err)
@@ -83,6 +79,9 @@ router.get('/', (req, res) => {
         Resource.findOneAndRemove({name: req.params.name})
         .then(() => {
             res.redirect('/resources')
+        })
+        .catch((err) => {
+            console.log(err)
         })
     })
     
