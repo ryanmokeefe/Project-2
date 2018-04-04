@@ -14,6 +14,7 @@ const userController = require('./controllers/users.js')
 const searchController = require('./controllers/search.js')
 const cors = require('cors')
 
+
 app.use(morgan('dev')); 
 app.use(cookieParser());
 app.use(cors());

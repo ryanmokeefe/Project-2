@@ -10,9 +10,7 @@ const Resource = require('../models/resource-schema')
 router.get('/videos', (req, res) => {
     Resource.find({ videos: "Yes"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -21,11 +19,9 @@ router.get('/videos', (req, res) => {
 // find all exercises: 
 
 router.get('/exercises', (req, res) => {
-    Resource.find({exercises: "yes"})
+    Resource.find({exercises: "Yes"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -36,9 +32,7 @@ router.get('/exercises', (req, res) => {
 router.get('/both', (req, res) => {
     Resource.find({ videos: "Yes", exercises: "Yes" })
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -51,9 +45,7 @@ router.get('/both', (req, res) => {
 router.get('/articles', (req, res) => {
     Resource.find({ type: "Article"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -63,9 +55,7 @@ router.get('/articles', (req, res) => {
 router.get('/lectures', (req, res) => {
     Resource.find({ type: "Lecture"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -75,9 +65,7 @@ router.get('/lectures', (req, res) => {
 router.get('/podcasts', (req, res) => {
     Resource.find({ type: "Podcast"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -87,9 +75,7 @@ router.get('/podcasts', (req, res) => {
 router.get('/lessons', (req, res) => {
     Resource.find({ type: "Lesson"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
@@ -99,9 +85,7 @@ router.get('/lessons', (req, res) => {
 router.get('/documentation', (req, res) => {
     Resource.find({ type: "Documentation"})
     .then((resource) => {
-        res.render('resources-index', {
-            resources: resource
-        })
+        res.json(resource)
     })
     .catch((err) => {console.log(err)
     })
